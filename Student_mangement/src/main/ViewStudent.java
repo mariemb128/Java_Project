@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,7 +18,9 @@ import java.awt.event.ActionEvent;
 
 public class ViewStudent extends JFrame {
 	
-	private static final Object[][] data = null;
+	private static final Object[][] data = { 
+		{"1", "MiMi", "Heaven street", "53 009 291"}, 
+	};;
 	JPanel contentPane =new JPanel();
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -40,29 +41,29 @@ public class ViewStudent extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+	
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.GRAY);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 753, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 753, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(423, Short.MAX_VALUE))
+				gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 572, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		
+	
 		JLabel lblNewLabel = new JLabel("Student Details");
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 28));
 		lblNewLabel.setBounds(255, 27, 225, 52);
 		desktopPane.add(lblNewLabel);
-		
+	
 		JButton btnNewButton = new JButton("Go Back");
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -74,14 +75,13 @@ public class ViewStudent extends JFrame {
 		});
 		String[] columnNames = {"ID", "Name", "Address", "Phone"};
 		JTable table = new JTable(data,columnNames);
-	    JScrollPane scrollPane = new JScrollPane(table);
-	    scrollPane.setBounds(10, 139, 753, 423);
-	    desktopPane.add(scrollPane);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(10, 96, 753, 427);
+		desktopPane.add(scrollPane);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(10, 96, 113, 32);
+		btnNewButton.setBounds(10, 534, 113, 32);
 		desktopPane.add(btnNewButton);
 		contentPane.setLayout(gl_contentPane);
-		
 	}
+	
 }
-
